@@ -30,7 +30,7 @@ heap_t *heap_insert(heap_t **root, int value)
 /**
  * binary_tree_length - function that return the size of a tree
  * @tree: tree to check its size
- * 
+ *
  * Description: function that return the size of a tree
  * Return: size of tree or 0 if NULL
  */
@@ -59,7 +59,7 @@ size_t binary_tree_length(const binary_tree_t *tree)
  * @value: value inserted into node
  * @idx: index of the node
  * @n_leaf: node array position (parent formula: idx / 2)
- * 
+ *
  * Description: Inserts node level ordered
  * Return: Node inserted or NULL if tree is NULL
  */
