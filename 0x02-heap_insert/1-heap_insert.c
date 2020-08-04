@@ -56,10 +56,10 @@ size_t binary_tree_length(const binary_tree_t *tree)
  * @tree: pointer of the parent node
  * @value: value inserted into node
  * @idx: index of the node
- * @nleaf: node array position (parent formula: idx / 2)
+ * @n_leaf: node array position (parent formula: idx / 2)
  * Return: Node inserted or NULL if tree is NULL
  */
-heap_t *node_insert_order(binary_tree_t *tree, int value, int idx, int nleaf)
+heap_t *node_insert_order(binary_tree_t *tree, int value, int idx, int n_leaf)
 {
 	heap_t *new_node;
 
@@ -67,9 +67,9 @@ heap_t *node_insert_order(binary_tree_t *tree, int value, int idx, int nleaf)
 	{
 		return (NULL);
 	}
-	if (idx + 1 == nleaf / 2)
+	if (idx + 1 == n_leaf / 2)
 	{
-		if (nleaf & 1)
+		if (n_leaf & 1)
 		{
 			tree->right = binary_tree_node(tree, value);
 			return (tree->right);
@@ -80,13 +80,13 @@ heap_t *node_insert_order(binary_tree_t *tree, int value, int idx, int nleaf)
 			return (tree->left);
 		}
 	}
-	new_node = node_insert_order(tree->left, value, 2 * idx + 1, nleaf);
+	new_node = node_insert_order(tree->left, value, 2 * idx + 1, n_leaf);
 	if (new_node != 0)
 	{
 		return (new_node);
 	}
 	else
 	{
-		return (node_insert_order(tree->right, value, 2 * idx + 2, nleaf));
+		return (node_insert_order(tree->right, value, 2 * idx + 2, n_leaf));
 	}
 }
