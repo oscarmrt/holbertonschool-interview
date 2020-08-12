@@ -19,7 +19,7 @@ def minOperations(n):
     while x > 1:
         if x % y == 0:
             x /= y
-            numOp += + y
+            numOp += y
         else:
             y += 1
     return numOp
