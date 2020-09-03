@@ -15,11 +15,12 @@ statusCode = {
 }
 totalSize = 0
 
+
 def printStat():
     """Function that print log accumulately"""
     print("File size: {}".format(totalSize))
     for x in sorted(statusCode.keys()):
-     if statusCode[x]:
+        if statusCode[x]:
             print("{}: {}".format(x, statusCode[x]))
 
 
