@@ -8,7 +8,7 @@ def validUTF8(data):
     set represents a valid UTF-8 encoding"""
     ct = 0
     for i in data:
-        if  ct == 0:
+        if ct == 0:
             if (i >> 5) == 0b110:
                 ct = 1
             elif (i >> 4) == 0b1110:
@@ -21,4 +21,4 @@ def validUTF8(data):
             if (i >> 6) != 0b10:
                 return False
             ct -= 1
-    return  ct == 0
+    return ct == 0
