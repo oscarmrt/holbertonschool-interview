@@ -49,5 +49,5 @@ int slide_line(int *line, size_t size, int direction)
 			pos2 = (direction == SLIDE_LEFT) ? pos1 + 1 : pos2;
 			pos2 = (direction == SLIDE_RIGHT) ? pos1 - 1 : pos2; }
 	}
-	return (0);
+	return (1);
 }
