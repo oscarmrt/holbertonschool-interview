@@ -7,13 +7,13 @@
  */
 void menger(int level)
 {
-	int x = 0;
-    int y = 0;
+	int x;
+    int y;
     int size = pow(3, level);
 
-	for (; x < size; x++)
+	for (x = 0; x < size; x++)
 	{
-		for (; y < size; y++)
+		for (y = 0; y < size; y++)
 		{
 			printf("%c", sponge_char(x, y));
 		}
