@@ -15,19 +15,19 @@ void menger(int level)
 	{
 		for (y = 0; y < size; y++)
 		{
-			printf("%c", sponge_char(x, y));
+			printf("%c", sChar(x, y));
 		}
 		printf("\n");
 	}
 }
 
 /**
- * sponge_char - Function to print the # char
+ * sChar - Function to print the # char
  * @x: the x value
  * @y: the y value
  * Return: the character to print
  */
-char sponge_char(int x, int y)
+char sChar(int x, int y)
 {
 	while (x && y)
 	{
