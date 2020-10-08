@@ -8,8 +8,8 @@
 void menger(int level)
 {
 	int x;
-    int y;
-    int size = pow(3, level);
+	int y;
+	int size = pow(3, level);
 
 	for (x = 0; x < size; x++)
 	{
