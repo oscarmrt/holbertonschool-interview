@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""Program that solves N queens puzzle"""
+"""Program that solves the N queens puzzle"""
 import sys
-
+K = 1
 
 if len(sys.argv) != 2:
     print("Usage: nqueens N")
@@ -16,42 +16,62 @@ if N < 4:
     print("N must be at least 4")
     exit(1)
 
-#chessboard
-#NxN matrix with all elements 0
-board = [[0]*N for _ in range(N)]
 
-def is_attack(i, j):
-    #checking if there is a queen in row or column
-    for k in range(0,N):
-        if board[i][k]==1 or board[k][j]==1:
-            return True
-    #checking diagonals
-    for k in range(0,N):
-        for l in range(0,N):
-            if (k+l==i+j) or (k-l==i-j):
-                if board[k][l]==1:
-                    return True
-    return False
+def printSolution(board):
+    """Function to print the solution"""
+    solutionList = []
+    global K
+    K = K + 1
+    for i in range(N):
+        for j in range(N):
+            if board[i][j] == 1:
+                solutionList.append([i, j])
+    print(solutionList)
 
-def N_queen(n):
-    #if n is 0, solution found
-    if n==0:
+
+def isSafe(board, row, col):
+    """Function to check if we can place a queen on board"""
+    for i in range(col):
+        if board[row][i]:
+            return False
+    i = row
+    j = col
+    while i >= 0 and j >= 0:
+        if board[i][j]:
+            return False
+        i -= 1
+        j -= 1
+    i = row
+    j = col
+    while j >= 0 and i < N:
+        if board[i][j]:
+            return False
+        i = i + 1
+        j = j - 1
+    return True
+
+
+def solveNQUtil(board, col):
+    """Recursive function to solve N queen"""
+    if col == N:
+        printSolution(board)
         return True
-    for i in range(0,N):
-        for j in range(0,N):
-            '''checking if we can place a queen here or not
-            queen will not be placed if the place is being attacked
-            or already occupied'''
-            if (not(is_attack(i,j))) and (board[i][j]!=1):
-                board[i][j] = 1
-                #recursion
-                #wether we can put the next queen with this arrangment or not
-                if N_queen(n-1)==True:
-                    return True
-                board[i][j] = 0
+    ans = False
+    for i in range(N):
+        if isSafe(board, i, col):
+            board[i][col] = 1
+            ans = solveNQUtil(board, col + 1) or ans
+            board[i][col] = 0
+    return ans
 
-    return False
 
-N_queen(N)
-for i in board:
-    print (i)
+def solveNQ():
+    """Backtraining for N queen"""
+    board = [[0 for j in range(N)] for i in range(N)]
+    if solveNQUtil(board, 0) is False:
+        pass
+        return
+    return
+
+
+solveNQ()
