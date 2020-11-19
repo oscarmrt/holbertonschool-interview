@@ -6,7 +6,7 @@ const idreq = process.argv[2];
 
 request(url + idreq, (err, res, body) => {
   if (err) {
-    return console.log(err);
+    console.log(err);
   } else {
     const characters = JSON.parse(body).characters;
     characters.forEach(char => {
