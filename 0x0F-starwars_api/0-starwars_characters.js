@@ -1,22 +1,28 @@
+
 #!/usr/bin/node
 
 const request = require('request');
-const url = 'https://swapi-api.hbtn.io/api/films/';
-const idreq = process.argv[2];
 
-request(url + idreq, (err, res, body) => {
-  if (err) {
-    console.log(err);
-  } else {
-    const characters = JSON.parse(body).characters;
-    characters.forEach(char => {
-      request(char, (err, response, body) => {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log(JSON.parse(body).name);
+const apiurl = 'https://swapi.dev/api/films/' + process.argv.slice(2) + '/';
+
+request(apiurl, async function (error, response, body) {
+
+    if (error) {
+        console.log(error);
+
+    } else {
+        const characters = JSON.parse(body).characters;
+        for (const url of characters) {
+            const res = await new Promise((resolve, reject) => {
+                request(url, (error, res, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        resolve(JSON.parse(body).name);
+                    }
+                });
+            });
+            console.log(res);
         }
-      });
-    });
-  }
+    }
 });
