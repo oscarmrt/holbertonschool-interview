@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 '''Recursive function that queries the Reddit API and returns a list
-containing the titles of all hot articles for a given subreddit.'''
+containing the titles of all hot articles for a given subreddit'''
 
 import requests
 
 
 def count_words(subreddit, wlist, after="", counting={}):
         """Recursive function that queries the Reddit API and returns a list
-        containing the titles of all hot articles for a given subreddit."""
+        containing the titles of all hot articles for a given subreddit"""
         if after is None:
             return []
         url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
