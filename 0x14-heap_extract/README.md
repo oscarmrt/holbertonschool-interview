@@ -1,4 +1,4 @@
-This project is about 0x14-heap_extract
+This project is about 0x14-heap_extract.
 0-heap_extract.c - Write a function that extracts the root node of a Max Binary Heap:
 Prototype: int heap_extract(heap_t **root);
 root is a double pointer to the root node of the heap
