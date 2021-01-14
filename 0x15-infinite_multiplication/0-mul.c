@@ -10,7 +10,7 @@ void print_str(char *s)
 	if (*s != '\0')
 	{
 		_putchar(*s);
-		print_str(s + 1);
+		puts(s + 1);
 	}
 }
 /**
