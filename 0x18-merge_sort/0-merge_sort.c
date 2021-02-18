@@ -9,10 +9,10 @@
 void merge_aux(int *array, int *left, int *right, size_t size)
 {
 	int i = 0;
-    int j = 0;
-    int k = 0;
+	int j = 0;
+	int k = 0;
 	int left_size;
-    int right_size;
+	int right_size;
 
 	left_size = size / 2;
 	right_size = size - left_size;
@@ -45,7 +45,7 @@ void merge_sort(int *array, size_t size)
 {
 	size_t mid = 0, i;
 	int left[MAX];
-    int right[MAX];
+	int right[MAX];
 
 	if (array == NULL || size < 2)
 		return;
