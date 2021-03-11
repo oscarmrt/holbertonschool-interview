@@ -10,7 +10,7 @@
 int max(int *array, int size)
 {
 	int i;
-    int maxint;
+	int maxint;
 
 	for (maxint = array[0], i = 1; i < size; i++)
 		maxint = (array[i] > maxint) ? array[i] : maxint;
@@ -57,7 +57,7 @@ void count(int *array, int size, int exp)
 void radix_sort(int *array, size_t size)
 {
 	int maxint;
-    int exp;
+	int exp;
 
 	if (size < 2)
 		return;
