@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * wildcmp - Function that compares two strings
+ * wildcmp - Function that compares two strings s1 and s2
  * @s1: string to compare
  * @s2: string to compare can contain the special character *. The special
  * char * can replace any string (including an empty string)
